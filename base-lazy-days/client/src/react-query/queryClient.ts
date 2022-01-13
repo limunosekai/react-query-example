@@ -17,10 +17,17 @@ function queryErrorHandler(error: unknown): void {
   toast({ id, title, status: 'error', variant: 'subtle', isClosable: true });
 }
 
-export const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      onError: queryErrorHandler,
+export function generateQueryClient(): QueryClient {
+  return new QueryClient({
+    defaultOptions: {
+      queries: {
+        onError: queryErrorHandler,
+      },
+      mutations: {
+        onError: queryErrorHandler,
+      },
     },
-  },
-});
+  });
+}
+
+export const queryClient = generateQueryClient();
