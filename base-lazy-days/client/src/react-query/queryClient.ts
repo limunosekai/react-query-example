@@ -22,6 +22,11 @@ export function generateQueryClient(): QueryClient {
     defaultOptions: {
       queries: {
         onError: queryErrorHandler,
+        staleTime: 600000, // 10 분
+        cacheTime: 900000, // 15 분
+        refetchOnMount: false,
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: false,
       },
       mutations: {
         onError: queryErrorHandler,
