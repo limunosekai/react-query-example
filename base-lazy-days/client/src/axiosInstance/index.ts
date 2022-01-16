@@ -7,7 +7,7 @@ interface jwtHeader {
   Authorization?: string;
 }
 
-export function getJWTHeader(user: User): jwtHeader {
+export function getJWTHeader(user: User): Record<string, string> {
   return { Authorization: `Bearer ${user.token}` };
 }
 
